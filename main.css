@@ -1,0 +1,25 @@
+@font-face {
+  font-display: swap;
+  font-family: "JetBrains Mono";
+  src: url(jetbrainsmono.ttf);
+}
+body {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ul {
+  list-style-type: square;
+}
+.container {
+  max-width: 720px;
+}
+a,
+a:visited {
+  color: blue;
+}
+a:hover {
+  color: black;
+}
