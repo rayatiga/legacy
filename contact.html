@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <meta name="description" content="Rayatiga is individual agency where passionate about building simple and fast WP web development for you." />
+    <meta property="og:image" content="https://cdn.rayatiga.com/legacy/media/og.png" />
+    <link rel="icon" href="https://cdn.rayatiga.com/legacy/media/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="https://cdn.rayatiga.com/legacy/css/main.css" />
+    <link rel="stylesheet" href="https://cdn.rayatiga.com/legacy/css/normalize.css" />
+    <script src="https://cdn.rayatiga.com/legacy/js/main.js"></script>
+  </head>
+  <body>
+    <div class="form">
+      <header>
+        <h1>Rayatiga</h1>
+        <p>
+          Rayatiga is individual agency where passionate about building simple and fast WP web development for you. For now, Rayatiga handle more than
+          hundreds services around the world. Warning: This website is only and officialy served by rayatiga.com!
+        </p>
+        <hr />
+      </header>
+      <main>
+        <a href="./">&larr; back to home</a>
+        <h1>Form submission</h1>
+        <p>
+          Send message to us for more information about your feedback. We will be happy to help you, all replies and information will be provided via
+          email. Please fill your message in the form with other valid data (all required to filled in).
+        </p>
+        <form action="#">
+          <h2>Type</h2>
+          <input type="radio" name="type" id="support" value="support" required />
+          <label for="support">Support</label>
+          <input type="radio" name="type" id="byol" value="byol" required />
+          <label for="byol">BYOL</label>
+          <h2>Identity</h2>
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" placeholder="Enter your full name..." required />
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="Enter your email..." required />
+          <h2>Message</h2>
+          <label for="subject">Subject</label>
+          <input type="text" name="subject" id="subject" placeholder="Enter your subject..." required />
+          <textarea name="message" id="message" placeholder="Type your message/byol specs here..." maxlength="500" required></textarea>
+          <input type="checkbox" name="agreement" id="agreement" value="ok" required />
+          <label for="agreement">I agree to privacy policy in this site <sup>*</sup></label>
+          <button type="submit">Submit</button>
+        </form>
+      </main>
+      <footer>
+        <hr />
+        Copyright &copy; 2020-2023 Rayatiga, Agency. &mdash; All Rights Reserved.
+      </footer>
+    </div>
+  </body>
+</html>
