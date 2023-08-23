@@ -5,24 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form - Rayatiga Legacy</title>
     <meta name="description" content="Empowering Your Digital Presence" />
-    <meta property="og:image" content="https://cdn.rayatiga.com/img/rayatiga-og.png" />
+    <meta property="og:image" content="https://cdn.rayatiga.com/img/rayatiga-og.jpg" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdn.rayatiga.com/css/normalize.css" />
-    <link rel="stylesheet" href="https://cdn.rayatiga.com/css/rayatiga-legacy-main.css" />
+    <link rel="stylesheet" href="/asset//css/normalize.css" />
+    <link rel="stylesheet" href="/asset/css/main.css" />
+    <script defer src="/asset/js/main.js"></script>
   </head>
   <body>
-    <div class="form">
+    <div class="container form">
       <header>
         <h1>Rayatiga</h1>
         <p>Crafting cutting-edge websites to elevate your digital presence.</p>
         <hr />
       </header>
       <main>
-        <div class="page">
-          <a href="/">&larr; Home</a>
-          <a href="/doc.html">Doc &rarr;</a>
-        </div>
-        <span>Location: /form.html</span>
         <h1>Form submission</h1>
         <p>Send us a message for more information regarding your feedback. We will be delighted to assist you, and all responses and information will be conveyed through email. Kindly complete the form with accurate details, ensuring that all required fields are filled in.</p>
         <form>
@@ -44,13 +40,15 @@
           <input type="checkbox" name="agreement" id="agreement" value="ok" required />
           <label for="agreement">I agree to the privacy policy on this site <sup>*</sup></label>
           <div class="button">
-            <button type="reset" onclick="document.getElementById('form-info').innerHTML = 'Form resseted.'">Reset</button>
-            <button type="submit" onclick="document.getElementById('form-info').innerHTML = 'Sorry, the form is currently undergoing maintenance.'">Submit</button>
+            <button type="reset" onclick="formReset()">Reset</button>
+            <button type="submit" onclick="formMaintenance()">Submit</button>
           </div>
-          <span id="form-info"></span>
+          <span id="form-status"></span>
         </form>
       </main>
       <footer>
+        <span id="map"></span>
+        <span id="loc"></span>
         <hr />
         Copyright &copy; 2020-2023 Rayatiga Agency. All Rights Reserved.
       </footer>
