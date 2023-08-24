@@ -76,7 +76,8 @@ ul {
 /* JavaScript Generated */
 ul.map {
   padding: 0;
-  gap: 0.75em;
+  gap: 0.65em;
+  row-gap: 0.25em;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -127,6 +128,16 @@ div.form main form span#form-status {
 /* documentation.html */
 div.documentation main div.info-detail {
   padding-left: 1.5em;
+}
+div.documentation main div.info-detail p {
+  font-weight: bold;
+}
+
+/* Image by alt */
+img[alt='verified'] {
+  width: 16px;
+  margin-left: 3px;
+  vertical-align: top;
 }
 
 /* Prefer Color Scheme */

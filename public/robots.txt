@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://legacy.rayatiga.com/sitemap.xml
+Sitemap: https://rayatiga.com/sitemap.xml

@@ -1,47 +1,70 @@
+/* Document */
 html {
-  line-height: 1.15;
+  line-height: 1.25;
   -webkit-text-size-adjust: 100%;
 }
+
+/* Body */
 body {
   margin: 0;
 }
+
+/* Main */
 main {
   display: block;
 }
+
+/* Heading */
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
+
+/* Horizontal line */
 hr {
   box-sizing: content-box;
   height: 0;
   overflow: visible;
 }
+
+/* Pre */
 pre {
   font-family: monospace, monospace;
   font-size: 1em;
 }
+
+/* Anchor link */
 a {
   background-color: transparent;
 }
+
+/* Abbreviation */
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
   text-decoration: underline dotted;
 }
+
+/* Bold text */
 b,
 strong {
   font-weight: bolder;
 }
+
+/* Code text */
 code,
 kbd,
 samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
+
+/* Small size */
 small {
   font-size: 80%;
 }
+
+/* Sub and sup */
 sub,
 sup {
   font-size: 75%;
@@ -55,9 +78,13 @@ sub {
 sup {
   top: -0.5em;
 }
+
+/* Image */
 img {
   border-style: none;
 }
+
+/* Form */
 button,
 input,
 optgroup,
