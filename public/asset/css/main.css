@@ -201,6 +201,19 @@ template {
   color: var(--white);
   background-color: var(--blue);
 }
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #aaaaaa;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--light);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #999999;
+}
 /* Document */
 html {
   overflow-y: auto;
@@ -209,9 +222,11 @@ html {
 /* Body */
 body {
   display: flex;
+  color: var(--black);
   align-items: center;
   justify-content: center;
   font-size: var(--font-size);
+  background-color: var(--light);
   line-height: var(--line-height);
   font-weight: var(--font-weight);
   font-family: var(--body-font-family);
@@ -264,21 +279,21 @@ code[status='0']::before {
   content: 'Pending';
 }
 code[status='0'] {
-  background-color: #ffffaa;
-  border: 1px solid var(--dark);
+  background-color: #ffff0077;
 }
 code[status='1']::before {
   content: 'Resolved';
 }
 code[status='1'] {
-  background-color: #aaffaa;
-  border: 1px solid var(--dark);
+  background-color: #00ff0077;
 }
 code[status='2']::before {
-  content: 'Not Resolved';
+  content: 'Unresolved';
 }
 code[status='2'] {
-  background-color: #ffaaaa;
+  background-color: #ff000077;
+}
+code[status] {
   border: 1px solid var(--dark);
 }
 /* Gobal: Image */
@@ -370,6 +385,10 @@ div.ticket main table td {
   text-align: left;
   border: 1px solid var(--gray);
 }
+div.ticket main table td:nth-child(1),
+div.ticket main table td:nth-child(3) {
+  text-transform: uppercase;
+}
 div.ticket main table td:nth-child(2) {
   text-transform: lowercase;
 }
@@ -383,22 +402,18 @@ div.ticket main table td:nth-child(2) {
 /* ===== TICKET END (ticket.html) ===== */
 
 /* ===== OTHER START ===== */
-@media (prefers-color-scheme: light) {
-  :root {
-    --border-color: var(--black);
-  }
-  a,
-  a:visited {
-    color: var(--blue);
-  }
-  body {
-    color: var(--black);
-    background-color: var(--light);
-  }
-}
 @media (prefers-color-scheme: dark) {
   :root {
     --border-color: var(--white);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #333333;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: var(--dark);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #444444;
   }
   a,
   a:visited {
@@ -407,6 +422,14 @@ div.ticket main table td:nth-child(2) {
   body {
     color: var(--white);
     background-color: var(--dark);
+  }
+  code {
+    color: var(--white);
+    background-color: #333333;
+  }
+  code[status] {
+    color: var(--white);
+    border: 1px solid var(--gray);
   }
   input,
   textarea {
