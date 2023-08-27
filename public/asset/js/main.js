@@ -1,9 +1,11 @@
 /* ===== GLOBAL START ===== */
 // Display pathname location below header
 document.getElementById('loc').outerHTML = `<p class="loc">Location: ${window.location.pathname}</p>`
+// Display title and subtitle inside header
+document.getElementById('hdr').outerHTML = `<h1>Rayatiga</h1>
+                                            <p>Crafting cutting-edge websites to elevate your digital presence.</p>`
 // Display navigation inside footer
-document.getElementById('map').outerHTML = `<hr />
-                                            <p>Navigation & Sitemap</p>
+document.getElementById('map').outerHTML = `<p>Navigation & Sitemap</p>
                                             <ul class="map">
                                               <li><a href="/" title="Go to home page">Home</a></li>
                                               <li><a href="/about.html" title="Go to about page">About</a></li>
@@ -17,13 +19,12 @@ document.getElementById('map').outerHTML = `<hr />
                                               <li><a href="/sitemap.html" title="Go to sitemap page">Sitemap</a></li>
                                             </ul>`
 document.getElementById('cr').outerHTML = `<p class="cr">Copyright &copy; 2020-2023 Rayatiga Agency. All Rights Reserved.</p>`
-document.getElementById('sme').outerHTML = `<hr />
-                                            <p>Your native theme is <span id="statesme"></span>. Switch scheme to <a onclick="switchScheme()" class="sme"></a>.</p>`
+document.getElementById('sme').outerHTML = `<p>Your native theme is <span id="nesme"></span>. Switch scheme to <a onclick="switchScheme()" class="sme"></a>.</p>`
 // Get preffered color scheme, local storage scheme, button sme
 let preferScheme = window.matchMedia('(prefers-color-scheme: light)').matches
 let currentScheme = localStorage.getItem('scheme')
 let textScheme = document.getElementsByClassName('sme')[0]
-let stateScheme = document.getElementById('statesme')
+let nativeScheme = document.getElementById('nesme')
 // Initial set scheme by user device theme
 if (currentScheme == null && preferScheme) {
   currentScheme = 'light'
@@ -33,7 +34,7 @@ if (currentScheme == null && preferScheme) {
 localStorage.setItem('scheme', currentScheme)
 document.body.setAttribute('scheme', currentScheme)
 textScheme.setAttribute('scheme', currentScheme)
-stateScheme.innerHTML = preferScheme == true ? 'light' : 'dark'
+nativeScheme.innerHTML = preferScheme == true ? 'light' : 'dark'
 // Scheme switcher to light or dark triggered by clicking button
 function switchScheme() {
   const toLight = () => {
