@@ -204,12 +204,12 @@ template {
   --selection-color: var(--white);
   --input-textarea-bg: var(--light);
   --table-border-color: var(--gray);
-  --input-textarea-color: var(--white);
+  --input-textarea-color: var(--black);
   --code-status-border-color: var(--dark);
   --input-textarea-border-color: var(--gray);
   /* Applied Unit (size, width, padding, family) */
   --font-size: 1em;
-  --box-width: 46em;
+  --box-width: 45em;
   --font-weight: 400;
   --box-padding: 1em;
   --scrollbar-width: 12px;
@@ -313,16 +313,23 @@ code[status='2']::before {
 code[status='2'] {
   background-color: var(--code-status-2-bg);
 }
+code[status='3']::before {
+  content: 'Serving';
+}
+code[status='3'] {
+  background-color: var(--code-status-1-bg);
+  animation: glow 350ms ease-in-out alternate infinite;
+}
 code[status] {
   border: 1px solid var(--code-status-border-color);
 }
-/* Gobal: Image */
+/* Image */
 img[alt='verified'] {
   width: 1.125em;
   margin-left: 0.25em;
   margin-bottom: -0.25em;
 }
-/* by JavaScript */
+/* JavaScript */
 ul.map {
   padding: 0;
   gap: 0.65em;
@@ -344,6 +351,15 @@ a.sme[scheme='dark']::before {
   content: 'light';
 }
 /* ===== GLOBAL END ===== */
+
+/* ===== DOCUMENTATION START (documentation.html) ===== */
+div.documentation main div.info-detail {
+  padding-left: 1.5em;
+}
+div.documentation main div.info-detail p {
+  font-weight: bold;
+}
+/* ===== DOCUMENTATION END (documentation.html) ===== */
 
 /* ===== FORM START (form.html) ===== */
 div.form main form input::placeholder,
@@ -399,15 +415,6 @@ div.form main form textarea {
 }
 /* ===== FORM END (form.html) ===== */
 
-/* ===== DOCUMENTATION START (documentation.html) ===== */
-div.documentation main div.info-detail {
-  padding-left: 1.5em;
-}
-div.documentation main div.info-detail p {
-  font-weight: bold;
-}
-/* ===== DOCUMENTATION END (documentation.html) ===== */
-
 /* ===== TICKET START (ticket.html) ===== */
 div.ticket main div.table-scroll {
   overflow-x: auto;
@@ -438,7 +445,18 @@ div.ticket main table td:nth-child(2) {
 }
 /* ===== TICKET END (ticket.html) ===== */
 
-/* ===== OTHER START ===== */
+/* ===== KEYFRAME START ===== */
+@keyframes glow {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.75;
+  }
+}
+/* ===== KEYFRAME END ===== */
+
+/* ===== SCHEME START ===== */
 [scheme='light'] {
   --code-bg: #eeeeee;
   --thumb-bg: #aaaaaa;
@@ -449,7 +467,7 @@ div.ticket main table td:nth-child(2) {
   --thumb-hover-bg: #999999;
   --border-color: var(--black);
   --input-textarea-bg: var(--light);
-  --input-textarea-color: var(--white);
+  --input-textarea-color: var(--black);
   --code-status-border-color: var(--dark);
 }
 @media (prefers-color-scheme: light) {
@@ -463,7 +481,7 @@ div.ticket main table td:nth-child(2) {
     --thumb-hover-bg: #999999;
     --border-color: var(--black);
     --input-textarea-bg: var(--light);
-    --input-textarea-color: var(--white);
+    --input-textarea-color: var(--black);
     --code-status-border-color: var(--dark);
   }
 }
@@ -473,8 +491,8 @@ div.ticket main table td:nth-child(2) {
   --body-bg: var(--dark);
   --track-bg: var(--dark);
   --body-color: var(--white);
-  --thumb-hover-bg: #444444;
   --anchor-color: var(--ocean);
+  --thumb-hover-bg: #444444;
   --border-color: var(--white);
   --input-textarea-bg: var(--dark);
   --input-textarea-color: var(--white);
@@ -487,12 +505,12 @@ div.ticket main table td:nth-child(2) {
     --body-bg: var(--dark);
     --track-bg: var(--dark);
     --body-color: var(--white);
-    --thumb-hover-bg: #444444;
     --anchor-color: var(--ocean);
+    --thumb-hover-bg: #444444;
     --border-color: var(--white);
     --input-textarea-bg: var(--dark);
     --input-textarea-color: var(--white);
     --code-status-border-color: var(--gray);
   }
 }
-/* ===== OTHER END ===== */
+/* ===== SCHEME END ===== */
