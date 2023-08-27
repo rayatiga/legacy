@@ -179,7 +179,7 @@ template {
 /* ===== GLOBAL START ===== */
 /* Root */
 :root {
-  /* Color */
+  /* Initial Color */
   --red: #ff0000;
   --gray: #787878;
   --blue: #0000ff;
@@ -188,31 +188,50 @@ template {
   --light: #fdfdfd;
   --black: #000000;
   --ocean: #0077ff;
-  /* Unit */
+  /* Applied Color (color, bg) */
+  --code-bg: #eeeeee;
+  --thumb-bg: #aaaaaa;
+  --body-bg: var(--light);
+  --track-bg: var(--light);
+  --body-color: var(--black);
+  --anchor-color: var(--blue);
+  --selection-bg: var(--blue);
+  --thumb-hover-bg: #999999;
+  --border-color: var(--black);
+  --code-status-0-bg: #ffff0077;
+  --code-status-1-bg: #00ff0077;
+  --code-status-2-bg: #ff000077;
+  --selection-color: var(--white);
+  --input-textarea-bg: var(--light);
+  --table-border-color: var(--gray);
+  --input-textarea-color: var(--white);
+  --code-status-border-color: var(--dark);
+  --input-textarea-border-color: var(--gray);
+  /* Applied Unit (size, width, padding, family) */
   --font-size: 1em;
   --box-width: 46em;
   --font-weight: 400;
   --box-padding: 1em;
-  --border-color: var(--black);
+  --scrollbar-width: 12px;
   --body-font-family: 'Outfit', sans-serif;
 }
 /* Selection */
 ::selection {
-  color: var(--white);
-  background-color: var(--blue);
+  color: var(--selection-color);
+  background-color: var(--selection-bg);
 }
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: var(--scrollbar-width);
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #aaaaaa;
+  background-color: var(--thumb-bg);
 }
 ::-webkit-scrollbar-track {
-  background-color: var(--light);
+  background-color: var(--track-bg);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #999999;
+  background-color: var(--thumb-hover-bg);
 }
 /* Document */
 html {
@@ -222,13 +241,13 @@ html {
 /* Body */
 body {
   display: flex;
-  color: var(--black);
   align-items: center;
   justify-content: center;
+  color: var(--body-color);
   font-size: var(--font-size);
-  background-color: var(--light);
   line-height: var(--line-height);
   font-weight: var(--font-weight);
+  background-color: var(--body-bg);
   font-family: var(--body-font-family);
 }
 /* Container */
@@ -238,11 +257,12 @@ body {
 }
 /* Anchor */
 a {
+  cursor: pointer;
   text-decoration: none;
 }
 a,
 a:visited {
-  color: var(--blue);
+  color: var(--anchor-color);
 }
 a:hover {
   text-decoration: underline;
@@ -264,7 +284,7 @@ header p {
 ul {
   list-style-type: square;
 }
-/* Gobal: Code */
+/* Code */
 code {
   font-weight: 400;
   font-size: 0.85em;
@@ -272,29 +292,29 @@ code {
   padding: 0.15em 0.3em;
   border-radius: 0.25em;
   vertical-align: middle;
-  background-color: #eeeeee;
+  background-color: var(--code-bg);
   font-family: 'Roboto Mono', monospace;
 }
 code[status='0']::before {
   content: 'Pending';
 }
 code[status='0'] {
-  background-color: #ffff0077;
+  background-color: var(--code-status-0-bg);
 }
 code[status='1']::before {
   content: 'Resolved';
 }
 code[status='1'] {
-  background-color: #00ff0077;
+  background-color: var(--code-status-1-bg);
 }
 code[status='2']::before {
   content: 'Unresolved';
 }
 code[status='2'] {
-  background-color: #ff000077;
+  background-color: var(--code-status-2-bg);
 }
 code[status] {
-  border: 1px solid var(--dark);
+  border: 1px solid var(--code-status-border-color);
 }
 /* Gobal: Image */
 img[alt='verified'] {
@@ -306,20 +326,29 @@ img[alt='verified'] {
 ul.map {
   padding: 0;
   gap: 0.65em;
-  row-gap: 0.25em;
   display: flex;
   flex-wrap: wrap;
+  row-gap: 0.25em;
   list-style: none;
 }
 p.loc {
   color: var(--gray);
+}
+p.cr {
+  margin-bottom: 0;
+}
+a.sme[scheme='light']::before {
+  content: 'dark';
+}
+a.sme[scheme='dark']::before {
+  content: 'light';
 }
 /* ===== GLOBAL END ===== */
 
 /* ===== FORM START (form.html) ===== */
 div.form main form input::placeholder,
 div.form main form textarea::placeholder {
-  font-size: 0.855em;
+  font-size: 1em;
 }
 div.form main form label sup {
   color: var(--red);
@@ -360,6 +389,14 @@ div.form main form div.button button:first-child {
 div.form main form span#form-status {
   color: var(--red);
 }
+div.form main form input,
+div.form main form textarea {
+  padding: 0.25em 0.5em;
+  border-radius: 0.25em;
+  color: var(--input-textarea-color);
+  background-color: var(--input-textarea-bg);
+  border: 1px solid var(--input-textarea-border-color);
+}
 /* ===== FORM END (form.html) ===== */
 
 /* ===== DOCUMENTATION START (documentation.html) ===== */
@@ -383,7 +420,7 @@ div.ticket main table th,
 div.ticket main table td {
   padding: 0.4em;
   text-align: left;
-  border: 1px solid var(--gray);
+  border: 1px solid var(--table-border-color);
 }
 div.ticket main table td:nth-child(1),
 div.ticket main table td:nth-child(3) {
@@ -402,41 +439,60 @@ div.ticket main table td:nth-child(2) {
 /* ===== TICKET END (ticket.html) ===== */
 
 /* ===== OTHER START ===== */
+[scheme='light'] {
+  --code-bg: #eeeeee;
+  --thumb-bg: #aaaaaa;
+  --body-bg: var(--light);
+  --track-bg: var(--light);
+  --body-color: var(--black);
+  --anchor-color: var(--blue);
+  --thumb-hover-bg: #999999;
+  --border-color: var(--black);
+  --input-textarea-bg: var(--light);
+  --input-textarea-color: var(--white);
+  --code-status-border-color: var(--dark);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --code-bg: #eeeeee;
+    --thumb-bg: #aaaaaa;
+    --body-bg: var(--light);
+    --track-bg: var(--light);
+    --body-color: var(--black);
+    --anchor-color: var(--blue);
+    --thumb-hover-bg: #999999;
+    --border-color: var(--black);
+    --input-textarea-bg: var(--light);
+    --input-textarea-color: var(--white);
+    --code-status-border-color: var(--dark);
+  }
+}
+[scheme='dark'] {
+  --code-bg: #333333;
+  --thumb-bg: #333333;
+  --body-bg: var(--dark);
+  --track-bg: var(--dark);
+  --body-color: var(--white);
+  --thumb-hover-bg: #444444;
+  --anchor-color: var(--ocean);
+  --border-color: var(--white);
+  --input-textarea-bg: var(--dark);
+  --input-textarea-color: var(--white);
+  --code-status-border-color: var(--gray);
+}
 @media (prefers-color-scheme: dark) {
   :root {
+    --code-bg: #333333;
+    --thumb-bg: #333333;
+    --body-bg: var(--dark);
+    --track-bg: var(--dark);
+    --body-color: var(--white);
+    --thumb-hover-bg: #444444;
+    --anchor-color: var(--ocean);
     --border-color: var(--white);
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #333333;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: var(--dark);
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #444444;
-  }
-  a,
-  a:visited {
-    color: var(--ocean);
-  }
-  body {
-    color: var(--white);
-    background-color: var(--dark);
-  }
-  code {
-    color: var(--white);
-    background-color: #333333;
-  }
-  code[status] {
-    color: var(--white);
-    border: 1px solid var(--gray);
-  }
-  input,
-  textarea {
-    border-radius: 0.25em;
-    border: 1px solid var(--gray);
-    color: var(--white);
-    background-color: #ffffff15;
+    --input-textarea-bg: var(--dark);
+    --input-textarea-color: var(--white);
+    --code-status-border-color: var(--gray);
   }
 }
 /* ===== OTHER END ===== */

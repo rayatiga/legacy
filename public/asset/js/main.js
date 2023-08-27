@@ -1,6 +1,6 @@
 /* ===== GLOBAL START ===== */
 // Display pathname location below header
-document.getElementById('loc').outerHTML = `<p class="loc">Location: ${window.location.pathname}`
+document.getElementById('loc').outerHTML = `<p class="loc">Location: ${window.location.pathname}</p>`
 // Display navigation inside footer
 document.getElementById('map').outerHTML = `<hr />
                                             <p>Navigation & Sitemap</p>
@@ -16,6 +16,45 @@ document.getElementById('map').outerHTML = `<hr />
                                               <li><a href="/privacy-policy.html" title="Go to privacy & policy page">Policy</a></li>
                                               <li><a href="/sitemap.html" title="Go to sitemap page">Sitemap</a></li>
                                             </ul>`
+document.getElementById('cr').outerHTML = `<p class="cr">Copyright &copy; 2020-2023 Rayatiga Agency. All Rights Reserved.</p>`
+document.getElementById('sme').outerHTML = `<hr />
+                                            <p>Your native theme is <span id="statesme"></span>. Switch scheme to <a onclick="switchScheme()" class="sme"></a>.</p>`
+// Get preffered color scheme, local storage scheme, button sme
+let preferScheme = window.matchMedia('(prefers-color-scheme: light)').matches
+let currentScheme = localStorage.getItem('scheme')
+let textScheme = document.getElementsByClassName('sme')[0]
+let stateScheme = document.getElementById('statesme')
+// Initial set scheme by user device theme
+if (currentScheme == null && preferScheme) {
+  currentScheme = 'light'
+} else if (currentScheme == null && !preferScheme) {
+  currentScheme = 'dark'
+}
+localStorage.setItem('scheme', currentScheme)
+document.body.setAttribute('scheme', currentScheme)
+textScheme.setAttribute('scheme', currentScheme)
+stateScheme.innerHTML = preferScheme == true ? 'light' : 'dark'
+// Scheme switcher to light or dark triggered by clicking button
+function switchScheme() {
+  const toLight = () => {
+    localStorage.setItem('scheme', 'light')
+    document.body.setAttribute('scheme', 'light')
+    textScheme.setAttribute('scheme', 'light')
+  }
+  const toDark = () => {
+    localStorage.setItem('scheme', 'dark')
+    document.body.setAttribute('scheme', 'dark')
+    textScheme.setAttribute('scheme', 'dark')
+  }
+  let currentScheme = localStorage.getItem('scheme')
+  if (currentScheme == 'dark' || textScheme.getAttribute('scheme') == 'dark') {
+    toLight()
+  } else if (currentScheme == 'light' || textScheme.getAttribute('scheme') == 'light') {
+    toDark()
+  } else {
+    toLight()
+  }
+}
 /* ===== GLOBAL END ===== */
 
 /* ===== FORM START (form.html) ===== */
