@@ -1,8 +1,25 @@
 {
   "hosting": {
     "public": "public",
-    "site": "rayatiga-legacy",
+    "site": "rayatigacom",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "redirects": [
+      {
+        "source": "/cloud",
+        "destination": "https://cloud.rayatiga.com",
+        "type": 301
+      },
+      {
+        "source": "/cdn",
+        "destination": "https://cdn.rayatiga.com",
+        "type": 301
+      },
+      {
+        "source": "/sultankautsar",
+        "destination": "https://sultankautsar.com",
+        "type": 301
+      }
+    ],
     "headers": [
       {
         "source": "**/*.@(eot|otf|ttf|ttc|woff|woff2|font.css)",
