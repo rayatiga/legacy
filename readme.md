@@ -1,2 +1,2 @@
 # Under Maintenance
-Sorry, the cdn is currently under maintenance.
+Sorry, the legacy is currently under maintenance.
